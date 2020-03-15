@@ -1,9 +1,17 @@
 /*global post:true*/
 const scribble = require('scribbletune');
-const pattern = 'x-xR-xRR';
 
-module.exports = function(scale) {
+module.exports = function(scaleAndPattern) {
+  post(scaleAndPattern);
+  post('\n');
+  const scaleAndPatternArr = scaleAndPattern.split(',');
+  const scale = scaleAndPatternArr[0] || 'C3 phrygian';
+  const pattern = scaleAndPatternArr[1] || 'x-xR-xRR';
   post(scale);
+  post('\n');
+  post(pattern);
+  post('\n');
+
   const mode = scribble.scale(scale);
   const clipA = scribble.clip({
     notes: mode[0],
