@@ -3,13 +3,14 @@ const path = require('path');
 module.exports = {
   mode: 'production',
   entry: {
-    main: './index.js'
+    riff: './src/riff.js',
+    chords: './src/chords.js'
   },
 
   output: {
-    filename: 'scribble.js',
-    path: __dirname,
-    library: 'scribble'
+    filename: '[name].js',
+    path: path.join(__dirname, 'dist'),
+    library: '[name]'
   },
 
   module: {
