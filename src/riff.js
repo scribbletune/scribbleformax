@@ -1,24 +1,16 @@
 /*global post:true*/
 const scribble = require('scribbletune');
 
-const sizzleDict = {
-  none: false,
-  sin: 'sin',
-  cos: 'cos',
-  saw: 'rampUp',
-  'saw-inv': 'rampDown'
-};
-
-module.exports = function(scalePatternAbSubdiv) {
-  post(scalePatternAbSubdiv);
+module.exports = function(commaSeparatedInput) {
+  post(commaSeparatedInput);
   post('\n');
-  const scalePatternAbSubdivArr = scalePatternAbSubdiv.split(',');
-  const scale = scalePatternAbSubdivArr[0] || 'C3 phrygian';
-  const pattern = scalePatternAbSubdivArr[1] || 'x-xRx_RR';
-  const ab = scalePatternAbSubdivArr[2] || 'AAAB'; // AAAB AB A AABB BAAA ABA BAB AABC ABBC ABCC ABC BAC CBA
-  const subdiv = scalePatternAbSubdivArr[3] || 0;
-  const sizzle = sizzleDict[scalePatternAbSubdivArr[4] || 'sin'];
-  const sizzleReps = scalePatternAbSubdivArr[5] || 1;
+  const data = commaSeparatedInput.split(',');
+  const scale = data[0] || 'C3 phrygian';
+  const pattern = data[1] || 'x-xRx_RR';
+  const ab = data[2] || 'AAAB'; // AAAB AB A AABB BAAA ABA BAB AABC ABBC ABCC ABC BAC CBA
+  const subdiv = data[3] || 0;
+  const sizzle = data[4] === 'none' ? false : data[4];
+  const sizzleReps = data[5] || 1;
   post(scale);
   post('\n');
   post(pattern);
@@ -28,7 +20,7 @@ module.exports = function(scalePatternAbSubdiv) {
   post(sizzleReps);
   post('\n');
   post('generate');
-
+  post('\n');
   const mode = scribble.scale(scale);
   const clipA = scribble.clip({
     notes: mode[0],
