@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx webpack",
+    "watch": "npx webpack --watch",
+    "zip": "cp -R dist scribble4max && zip scribble4max.zip ./scribble4max/* && rm -rf scribble4max"
   },
   "dependencies": {
     "@babel/runtime": "^7.4.5",
