@@ -1,6 +1,14 @@
 /*global post:true*/
 const scribble = require('scribbletune');
 
+const repeat = (str, count = 1) => {
+  let replacedStr = '';
+  for (let i = 0; i < count; i++) {
+    replacedStr += str;
+  }
+  return replacedStr;
+};
+
 module.exports = function(commaSeparatedInput) {
   post(commaSeparatedInput);
   post('\n');
@@ -11,21 +19,13 @@ module.exports = function(commaSeparatedInput) {
   const subdiv = data[3] || 0;
   const sizzle = data[4] === 'none' ? false : data[4];
   const sizzleReps = data[5] || 1;
-  post(scale);
-  post('\n');
-  post(pattern);
-  post('\n');
-  post(sizzle);
-  post('\n');
-  post(sizzleReps);
-  post('\n');
-  post('generate');
-  post('\n');
+  const useScaleNotesForR = !!parseInt(data[6]);
+  const repeatPattern = parseInt(data[7]);
   const mode = scribble.scale(scale);
   const clipA = scribble.clip({
     notes: mode[0],
-    pattern,
-    randomNotes: mode.slice(1),
+    pattern: repeat(pattern, repeatPattern),
+    randomNotes: useScaleNotesForR ? mode.slice(1) : null,
     subdiv,
     sizzle,
     sizzleReps
@@ -33,8 +33,8 @@ module.exports = function(commaSeparatedInput) {
 
   const clipB = scribble.clip({
     notes: mode[0],
-    pattern,
-    randomNotes: mode.slice(2),
+    pattern: repeat(pattern, repeatPattern),
+    randomNotes: useScaleNotesForR ? mode.slice(2) : null,
     subdiv,
     sizzle,
     sizzleReps
@@ -42,8 +42,8 @@ module.exports = function(commaSeparatedInput) {
 
   const clipC = scribble.clip({
     notes: mode[1],
-    pattern,
-    randomNotes: mode.slice(3),
+    pattern: repeat(pattern, repeatPattern),
+    randomNotes: useScaleNotesForR ? mode.slice(3) : null,
     subdiv,
     sizzle,
     sizzleReps
