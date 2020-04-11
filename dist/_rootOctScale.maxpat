@@ -57,11 +57,10 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 107.300001907348644, 4.5, 90.699999999999989, 18.0 ],
+					"patching_rect" : [ 107.300001907348644, 4.5, 52.0, 18.0 ],
 					"presentation" : 1,
-					"presentation_linecount" : 2,
-					"presentation_rect" : [ 102.300000000000011, 5.0, 51.0, 29.0 ],
-					"text" : "SCALE / MODE",
+					"presentation_rect" : [ 102.300000000000011, 5.0, 51.0, 18.0 ],
+					"text" : "SCALE",
 					"textcolor" : [ 0.396078431372549, 0.396078431372549, 0.396078431372549, 1.0 ]
 				}
 
@@ -123,13 +122,13 @@
 					"presentation_rect" : [ 6.0, 23.0, 40.0, 15.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
-							"parameter_enum" : [ "C", "Db", "D", "Eb", "E", "F", "Gb", "G", "Ab", "A", "Bb", "B" ],
-							"parameter_type" : 2,
 							"parameter_longname" : "menuRoots",
 							"parameter_initial_enable" : 1,
 							"parameter_mmax" : 11,
 							"parameter_initial" : [ 9.0 ],
-							"parameter_shortname" : "menuRoots"
+							"parameter_shortname" : "menuRoots",
+							"parameter_enum" : [ "C", "Db", "D", "Eb", "E", "F", "Gb", "G", "Ab", "A", "Bb", "B" ],
+							"parameter_type" : 2
 						}
 
 					}
@@ -151,13 +150,13 @@
 					"presentation_rect" : [ 51.300000000000011, 23.0, 31.0, 15.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
-							"parameter_enum" : [ "1", "2", "3", "4", "5", "6", "7", "8" ],
-							"parameter_type" : 2,
 							"parameter_longname" : "menuOctaves",
 							"parameter_initial_enable" : 1,
 							"parameter_mmax" : 7,
 							"parameter_initial" : [ 2.0 ],
-							"parameter_shortname" : "menuOctaves"
+							"parameter_shortname" : "menuOctaves",
+							"parameter_enum" : [ "1", "2", "3", "4", "5", "6", "7", "8" ],
+							"parameter_type" : 2
 						}
 
 					}
@@ -179,13 +178,13 @@
 					"presentation_rect" : [ 105.300000000000011, 23.0, 57.699999999999989, 15.0 ],
 					"saved_attribute_attributes" : 					{
 						"valueof" : 						{
-							"parameter_enum" : [ "aeolian", "altered", "augmented", "augmented heptatonic", "balinese", "bebop", "bebop dominant", "bebop locrian", "bebop major", "bebop minor", "chromatic", "composite blues", "diminished", "dorian", "dorian #4", "double harmonic lydian", "double harmonic major", "egyptian", "enigmatic", "flamenco", "flat six pentatonic", "flat three pentatonic", "half-whole diminished", "harmonic major", "harmonic minor", "hirajoshi", "hungarian major", "hungarian minor", "ichikosucho", "in-sen", "ionian augmented", "ionian pentatonic", "iwato", "kafi raga", "kumoijoshi", "leading whole tone", "locrian", "locrian #2", "locrian major", "locrian pentatonic", "lydian", "lydian #5P pentatonic", "lydian #9", "lydian augmented", "lydian diminished", "lydian dominant", "lydian dominant pentatonic", "lydian minor", "lydian pentatonic", "major", "major blues", "major flat two pentatonic", "major pentatonic", "malkos raga", "melodic minor", "melodic minor fifth mode", "melodic minor second mode", "minor #7M pentatonic", "minor bebop", "minor blues", "minor hexatonic", "minor pentatonic", "minor six diminished", "minor six pentatonic", "mixolydian", "mixolydian pentatonic", "mystery #1", "neopolitan", "neopolitan major", "neopolitan major pentatonic", "neopolitan minor", "oriental", "pelog", "persian", "phrygian", "phrygian dominant", "piongio", "prometheus", "prometheus neopolitan", "purvi raga", "ritusen", "romanian minor", "scriabin", "six tone symmetric", "spanish heptatonic", "super locrian pentatonic", "todi raga", "vietnamese 1", "vietnamese 2", "whole tone", "whole tone pentatonic" ],
-							"parameter_type" : 2,
 							"parameter_longname" : "menuScales",
 							"parameter_initial_enable" : 1,
 							"parameter_mmax" : 90,
 							"parameter_initial" : [ 0.0 ],
-							"parameter_shortname" : "menuScales"
+							"parameter_shortname" : "menuScales",
+							"parameter_enum" : [ "aeolian", "altered", "augmented", "augmented heptatonic", "balinese", "bebop", "bebop dominant", "bebop locrian", "bebop major", "bebop minor", "chromatic", "composite blues", "diminished", "dorian", "dorian #4", "double harmonic lydian", "double harmonic major", "egyptian", "enigmatic", "flamenco", "flat six pentatonic", "flat three pentatonic", "half-whole diminished", "harmonic major", "harmonic minor", "hirajoshi", "hungarian major", "hungarian minor", "ichikosucho", "in-sen", "ionian augmented", "ionian pentatonic", "iwato", "kafi raga", "kumoijoshi", "leading whole tone", "locrian", "locrian #2", "locrian major", "locrian pentatonic", "lydian", "lydian #5P pentatonic", "lydian #9", "lydian augmented", "lydian diminished", "lydian dominant", "lydian dominant pentatonic", "lydian minor", "lydian pentatonic", "major", "major blues", "major flat two pentatonic", "major pentatonic", "malkos raga", "melodic minor", "melodic minor fifth mode", "melodic minor second mode", "minor #7M pentatonic", "minor bebop", "minor blues", "minor hexatonic", "minor pentatonic", "minor six diminished", "minor six pentatonic", "mixolydian", "mixolydian pentatonic", "mystery #1", "neopolitan", "neopolitan major", "neopolitan major pentatonic", "neopolitan minor", "oriental", "pelog", "persian", "phrygian", "phrygian dominant", "piongio", "prometheus", "prometheus neopolitan", "purvi raga", "ritusen", "romanian minor", "scriabin", "six tone symmetric", "spanish heptatonic", "super locrian pentatonic", "todi raga", "vietnamese 1", "vietnamese 2", "whole tone", "whole tone pentatonic" ],
+							"parameter_type" : 2
 						}
 
 					}
@@ -225,9 +224,9 @@
 			}
  ],
 		"parameters" : 		{
-			"obj-7" : [ "menuScales", "menuScales", 0 ],
 			"obj-12" : [ "menuOctaves", "menuOctaves", 0 ],
 			"obj-13" : [ "menuRoots", "menuRoots", 0 ],
+			"obj-7" : [ "menuScales", "menuScales", 0 ],
 			"parameterbanks" : 			{
 
 			}

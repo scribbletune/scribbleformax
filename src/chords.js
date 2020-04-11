@@ -35,22 +35,6 @@ module.exports = function(commaSeparatedInput) {
   const arp = +data[7] || 0;
   const useCustomChords = +data[8] || 0;
   const customChords = data[9] || 'CM FM Am GM';
-  post(scale);
-  post('\n');
-  post('prog ' + prog);
-  post('\n');
-  post(pattern);
-  post('\n');
-  post(sizzle);
-  post('\n');
-  post(sizzleReps);
-  post('\n');
-  post('arp ' + arp);
-  post('\n');
-  post('useCustomChords' + useCustomChords);
-  post('\n');
-  post('customChords ' + customChords);
-  post('\n');
 
   const chords = useCustomChords
     ? customChords
@@ -58,10 +42,6 @@ module.exports = function(commaSeparatedInput) {
         .map(chord => chord + '-' + scale.split(' ')[0].replace(/\D/, ''))
         .join(' ')
     : scribble.getChordsByProgression(scale, prog);
-  post('chords ' + chords);
-  post('\n');
-  post('generate');
-  post('\n');
 
   scribble.max(
     scribble.clip({
