@@ -1,10 +1,10 @@
 /*global post:true*/
 const scribble = require('scribbletune');
 
-const replace = (str, char = '–', replaceChar = ' ') => {
+const replace = (str, char = /–|-/, replaceChar = ' ') => {
   let replacedStr = '';
   for (let i = 0; i < str.length; i++) {
-    if (str[i] === char) {
+    if (str[i].match(char)) {
       replacedStr += replaceChar;
     } else {
       replacedStr += str[i];
