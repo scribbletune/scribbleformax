@@ -11,7 +11,6 @@ const repeat = (str, count = 1) => {
 
 module.exports = function(commaSeparatedInput) {
   post(commaSeparatedInput);
-  post('Aiicaramab');
   post('\n');
   const data = commaSeparatedInput.split(',');
   const scale = data[0] || 'C3 phrygian';
@@ -71,8 +70,10 @@ module.exports = function(commaSeparatedInput) {
     }, []);
   })();
 
+  // Check if a clip is selected and open in the detail view [useful for Arrangement View]
   const o = new LiveAPI('live_set view detail_clip');
 
+  // If `o` doesnt exist then go for a selected clip in the Session View
   scribble.max(
     clip,
     o ? 'live_set view detail_clip' : 'live_set view highlighted_clip_slot clip'

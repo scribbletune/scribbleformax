@@ -24,6 +24,7 @@ const repeat = (str, count = 1) => {
 module.exports = function(commaSeparatedInput) {
   post(commaSeparatedInput);
   post('\n');
+  post('Aicarrmana');
   const data = commaSeparatedInput.split(',');
   const scale = data[0] || 'C3 major';
   const prog = replace(data[1] || 'I–vi–IV–V');
@@ -39,7 +40,7 @@ module.exports = function(commaSeparatedInput) {
   const chords = useCustomChords
     ? customChords
         .split('-')
-        .map(chord => chord + '-' + scale.split(' ')[0].replace(/\D/, ''))
+        .map((chord) => chord + '-' + scale.split(' ')[0].replace(/\D/, ''))
         .join(' ')
     : scribble.getChordsByProgression(scale, prog);
 
@@ -49,7 +50,7 @@ module.exports = function(commaSeparatedInput) {
       pattern: repeat(pattern, patternRepeat),
       subdiv,
       sizzle,
-      sizzleReps
+      sizzleReps,
     })
   );
 };
