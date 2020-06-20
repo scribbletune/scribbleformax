@@ -1,4 +1,4 @@
-/*global post:true*/
+/*global post:true LiveAPI*/
 const scribble = require('scribbletune');
 
 const repeat = (str, count = 1) => {
@@ -11,6 +11,7 @@ const repeat = (str, count = 1) => {
 
 module.exports = function(commaSeparatedInput) {
   post(commaSeparatedInput);
+  post('Aiicaramab');
   post('\n');
   const data = commaSeparatedInput.split(',');
   const scale = data[0] || 'C3 phrygian';
@@ -28,7 +29,7 @@ module.exports = function(commaSeparatedInput) {
     randomNotes: useScaleNotesForR ? mode.slice(1) : null,
     subdiv,
     sizzle,
-    sizzleReps
+    sizzleReps,
   });
 
   const clipB = scribble.clip({
@@ -37,7 +38,7 @@ module.exports = function(commaSeparatedInput) {
     randomNotes: useScaleNotesForR ? mode.slice(2) : null,
     subdiv,
     sizzle,
-    sizzleReps
+    sizzleReps,
   });
 
   const clipC = scribble.clip({
@@ -46,7 +47,7 @@ module.exports = function(commaSeparatedInput) {
     randomNotes: useScaleNotesForR ? mode.slice(3) : null,
     subdiv,
     sizzle,
-    sizzleReps
+    sizzleReps,
   });
 
   const clip = (() => {
@@ -70,5 +71,10 @@ module.exports = function(commaSeparatedInput) {
     }, []);
   })();
 
-  scribble.max(clip);
+  const o = new LiveAPI('live_set view detail_clip');
+
+  scribble.max(
+    clip,
+    o ? 'live_set view detail_clip' : 'live_set view highlighted_clip_slot clip'
+  );
 };
