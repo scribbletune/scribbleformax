@@ -1,4 +1,4 @@
-/*global post:true*/
+/*global post:true LiveAPI*/
 const scribble = require('scribbletune');
 
 const replace = (str, char = /–|-/, replaceChar = ' ') => {
@@ -24,7 +24,6 @@ const repeat = (str, count = 1) => {
 module.exports = function(commaSeparatedInput) {
   post(commaSeparatedInput);
   post('\n');
-  post('Aicarrmana');
   const data = commaSeparatedInput.split(',');
   const scale = data[0] || 'C3 major';
   const prog = replace(data[1] || 'I–vi–IV–V');
@@ -44,6 +43,10 @@ module.exports = function(commaSeparatedInput) {
         .join(' ')
     : scribble.getChordsByProgression(scale, prog);
 
+  // Check if a clip is selected and open in the detail view [useful for Arrangement View]
+  const o = new LiveAPI('live_set view detail_clip');
+
+  // If `o` doesnt exist then go for a selected clip in the Session View
   scribble.max(
     scribble.clip({
       notes: arp ? scribble.arp(chords) : chords,
@@ -51,6 +54,7 @@ module.exports = function(commaSeparatedInput) {
       subdiv,
       sizzle,
       sizzleReps,
-    })
+    }),
+    o ? 'live_set view detail_clip' : 'live_set view highlighted_clip_slot clip'
   );
 };
