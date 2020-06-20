@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 503.0, 179.0, 572.0, 660.0 ],
+		"rect" : [ 3653.0, 33.0, 572.0, 660.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -181,7 +181,7 @@
 							"parameter_longname" : "menuScales",
 							"parameter_initial_enable" : 1,
 							"parameter_mmax" : 90,
-							"parameter_initial" : [ 39.0 ],
+							"parameter_initial" : [ 40.0 ],
 							"parameter_shortname" : "menuScales",
 							"parameter_enum" : [ "aeolian", "altered", "augmented", "augmented heptatonic", "balinese", "bebop", "bebop dominant", "bebop locrian", "bebop major", "bebop minor", "chromatic", "composite blues", "diminished", "dorian", "dorian #4", "double harmonic lydian", "double harmonic major", "egyptian", "enigmatic", "flamenco", "flat six pentatonic", "flat three pentatonic", "half-whole diminished", "harmonic major", "harmonic minor", "hirajoshi", "hungarian major", "hungarian minor", "ichikosucho", "in-sen", "ionian augmented", "ionian pentatonic", "iwato", "kafi raga", "kumoijoshi", "leading whole tone", "locrian", "locrian #2", "locrian major", "locrian pentatonic", "lydian", "lydian #5P pentatonic", "lydian #9", "lydian augmented", "lydian diminished", "lydian dominant", "lydian dominant pentatonic", "lydian minor", "lydian pentatonic", "major", "major blues", "major flat two pentatonic", "major pentatonic", "malkos raga", "melodic minor", "melodic minor fifth mode", "melodic minor second mode", "minor #7M pentatonic", "minor bebop", "minor blues", "minor hexatonic", "minor pentatonic", "minor six diminished", "minor six pentatonic", "mixolydian", "mixolydian pentatonic", "mystery #1", "neopolitan", "neopolitan major", "neopolitan major pentatonic", "neopolitan minor", "oriental", "pelog", "persian", "phrygian", "phrygian dominant", "piongio", "prometheus", "prometheus neopolitan", "purvi raga", "ritusen", "romanian minor", "scriabin", "six tone symmetric", "spanish heptatonic", "super locrian pentatonic", "todi raga", "vietnamese 1", "vietnamese 2", "whole tone", "whole tone pentatonic" ],
 							"parameter_type" : 2
