@@ -1,6 +1,19 @@
 /*global post:true LiveAPI*/
 const scribble = require('scribbletune');
 
+const rand = (upper) => Math.round(Math.random() * upper);
+const sampleSize = (arr, count) => {
+  const a = [];
+  const newArr = [...arr];
+  while (count) {
+    a.push(newArr.splice(rand(newArr.length - 1), 1)[0]);
+    count--;
+  }
+
+  return a;
+};
+
+// ES5 doesnt support String.replace hence the transpiled version doesn't recognize it
 const replace = (str, char = /–|-/, replaceChar = ' ') => {
   let replacedStr = '';
   for (let i = 0; i < str.length; i++) {
@@ -13,12 +26,21 @@ const replace = (str, char = /–|-/, replaceChar = ' ') => {
   return replacedStr;
 };
 
+// ES5 doesnt support String.repeat hence the transpiled version doesn't recognize it
 const repeat = (str, count = 1) => {
   let replacedStr = '';
   for (let i = 0; i < count; i++) {
     replacedStr += str;
   }
   return replacedStr;
+};
+
+const getChords = (scale, prog) => {
+  if (prog === 'random-chords') {
+    return scribble.scale(scale);
+  } else {
+    return scribble.getChordsByProgression(scale, prog);
+  }
 };
 
 module.exports = function(commaSeparatedInput) {
@@ -36,12 +58,27 @@ module.exports = function(commaSeparatedInput) {
   const useCustomChords = +data[8] || 0;
   const customChords = data[9] || 'CM FM Am GM';
 
-  const chords = useCustomChords
-    ? customChords
-        .split('-')
-        .map((chord) => chord + '-' + scale.split(' ')[0].replace(/\D/, ''))
-        .join(' ')
-    : scribble.getChordsByProgression(scale, prog);
+  let chords = 'Dm-2 GM-2';
+
+  if (useCustomChords) {
+    chords = customChords
+      .split('-')
+      .map((chord) => chord + '-' + scale.split(' ')[0].replace(/\D/, ''))
+      .join(' ');
+  } else {
+    if (prog === 'random chords') {
+      const setOfNotes = scribble.scale(scale);
+      const count = replace(repeat(pattern, patternRepeat), /[^x]/g, '').length;
+
+      const notes = [];
+      for (let i = 0; i < count; i++) {
+        notes.push(sampleSize([...setOfNotes], 3));
+      }
+      chords = notes;
+    } else {
+      chords = scribble.getChordsByProgression(scale, prog);
+    }
+  }
 
   // Check if a clip is selected and open in the detail view [useful for Arrangement View]
   const o = new LiveAPI('live_set view detail_clip');
@@ -49,7 +86,8 @@ module.exports = function(commaSeparatedInput) {
   // If `o` doesnt exist then go for a selected clip in the Session View
   scribble.max(
     scribble.clip({
-      notes: arp ? scribble.arp(chords) : chords,
+      // arp is currently not available on chords expressed as notes arrays
+      notes: prog !== 'random chords' && arp ? scribble.arp(chords) : chords,
       pattern: repeat(pattern, patternRepeat),
       subdiv,
       sizzle,
