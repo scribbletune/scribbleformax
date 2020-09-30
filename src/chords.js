@@ -1,4 +1,5 @@
 /*global post:true LiveAPI*/
+require('./polyfill');
 const scribble = require('scribbletune');
 
 const rand = (upper) => Math.round(Math.random() * upper);

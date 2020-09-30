@@ -1,4 +1,5 @@
 /*global post:true LiveAPI*/
+require('./polyfill');
 const scribble = require('scribbletune');
 
 const repeat = (str, count = 1) => {

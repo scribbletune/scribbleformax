@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.4.5",
-    "scribbletune": "^3.5.3"
+    "scribbletune": "^3.15.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
