@@ -36,14 +36,6 @@ const repeat = (str, count = 1) => {
   return replacedStr;
 };
 
-const getChords = (scale, prog) => {
-  if (prog === 'random-chords') {
-    return scribble.scale(scale);
-  } else {
-    return scribble.getChordsByProgression(scale, prog);
-  }
-};
-
 module.exports = function(commaSeparatedInput) {
   post(commaSeparatedInput);
   post('\n');
