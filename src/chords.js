@@ -1,6 +1,5 @@
 /*global post:true LiveAPI*/
-require('./polyfill');
-const scribble = require('scribbletune');
+const scribble = require('scribbletune/max');
 
 const rand = (upper) => Math.round(Math.random() * upper);
 const sampleSize = (arr, count) => {
@@ -49,14 +48,15 @@ module.exports = function(commaSeparatedInput) {
   const sizzleReps = +data[6] || 1;
   const arp = +data[7] || 0;
   const useCustomChords = +data[8] || 0;
-  const customChords = data[9] || 'CM FM Am GM';
+  const customChords = data[9] || 'CM-FM-Am-GM';
 
-  let chords = 'Dm-2 GM-2';
+  let chords; // will be set something like 'Dm_2 GM_2';
 
   if (useCustomChords) {
+    // append octaves to CM-FM-Am-GM so that it becomes CM_4 FM_4 Am_4 GM_4
     chords = customChords
       .split('-')
-      .map((chord) => chord + '-' + scale.split(' ')[0].replace(/\D/, ''))
+      .map((chord) => chord + '_' + scale.split(' ')[0].replace(/\D/, ''))
       .join(' ');
   } else {
     if (prog === 'random chords') {
@@ -69,7 +69,7 @@ module.exports = function(commaSeparatedInput) {
       }
       chords = notes;
     } else {
-      chords = scribble.getChordsByProgression(scale, prog);
+      chords = scribble.getChordsByProgression(scale, prog).replace(/-/g, '_'); // replace hyphen with _ till scribbletune fixes it in getChordsByProgression
     }
   }
 

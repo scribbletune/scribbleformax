@@ -1,6 +1,5 @@
 /*global post:true LiveAPI*/
-require('./polyfill');
-const scribble = require('scribbletune');
+const scribble = require('scribbletune/max');
 
 const repeat = (str, count = 1) => {
   let replacedStr = '';
@@ -11,6 +10,8 @@ const repeat = (str, count = 1) => {
 };
 
 module.exports = function(commaSeparatedInput) {
+  post('hello from v4 in riff');
+  post('\n');
   post(commaSeparatedInput);
   post('\n');
   const data = commaSeparatedInput.split(',');
