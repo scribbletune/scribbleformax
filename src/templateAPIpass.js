@@ -44,7 +44,7 @@ function getClip(dictName) {
 }
 
 module.exports = function () {
-    const clip = getClip("clip")
+    const clip = getClip("clip1")
 
     const oap = new LiveAPI('live_set view detail_clip');
 

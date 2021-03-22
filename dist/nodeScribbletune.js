@@ -1,40 +1,26 @@
 const maxApi = require('max-api');
 const scribble = require('scribbletune');
 
-maxApi.addHandler("makeClip", () => {
-
+maxApi.addHandler("makeClip", () => { //we create an event handler function to contain the script. For more information on how this works, see Node for Max documantation https://docs.cycling74.com/nodeformax/api/
+    
     const constructChords = (async () => {
         const parameters = await maxApi.getDict("parameters") //we fetch the main dictionary "parameters"
-
-        const rootNote = full.rootNote
-        const mode = full.mode
-        const seventh = full.seventh
-        const chordNotation = full.chordNotation 
-        const repeatChords = full.repeatChords
-        const pattern = full.pattern
-        const subdiv = full.subdiv
-        const randomAssist = full.randomAssist
-        const chordMap = lib.translateChordMap(full.chordMap) 
-        const sizzle = full.sizzle 
-        const advChords = full.advChords
-        const open = full.open 
-        const voicing = full.voicing 
-        const octave = full.octave 
-        const bassNote = full.bassNote 
-        const splitChop = full.splitChop 
-        const splitter = full.splitter
         
-        const chordsMade = lib.makeChords(rootNote, mode, seventh, chordNotation, repeatChords, pattern, subdiv, randomAssist, chordMap, sizzle, advChords, open, voicing, octave, bassNote, splitChop, splitter)  //we make the Scribbletune clip and chord names
-        const clip = chordsMade[0]
-        const names = chordsMade[1]
+        const notes = parameters.notes //we retrieve the parameters
+        const pattern = parameters.pattern
         
-        await (
-            maxApi.setDict("clip", {
+        const clip = scribble.clip({ //we make the clip with Scribbletune
+            notes,
+            pattern,
+          });
+        
+        await ( //we send the Scribbletune clip to the other dictionary
+            maxApi.setDict("clip1", {
                 "scribbleObjects": clip
             })
         )
 
-        maxApi.outlet("bang") //We send a bang out to let the rest of the patch know to do its thing
+        maxApi.outlet("bang") //we send a bang out to let the rest of the patch know to do its thing
 
     })()
 
