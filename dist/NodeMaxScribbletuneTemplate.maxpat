@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 34.0, 77.0, 1452.0, 929.0 ],
+		"rect" : [ 232.0, 85.0, 1452.0, 913.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -40,6 +40,32 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-1",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "" ],
+					"patching_rect" : [ 724.0, 124.0, 59.0, 22.0 ],
+					"text" : "route text"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-21",
+					"maxclass" : "textedit",
+					"numinlets" : 1,
+					"numoutlets" : 4,
+					"outlettype" : [ "", "int", "", "" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 724.0, 67.0, 100.0, 50.0 ],
+					"presentation" : 1,
+					"presentation_rect" : [ 724.0, 67.0, 100.0, 50.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"fontface" : 1,
 					"fontsize" : 16.0,
 					"id" : "obj-22",
@@ -54,13 +80,12 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-12",
-					"linecount" : 13,
+					"linecount" : 16,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 60.0, 140.0, 350.0, 186.0 ],
-					"presentation_linecount" : 21,
-					"text" : "1. Install npm packeges by clicking the \"script npm install\" message (1 time only)\n2. Make sure that nodeScribbletune.js and templateAPIpass.js are visible to the patcher. Go to Options -> File Preferences and add a path pointing to the folder where these 2 scripts are stored.\n\nNote: Once you have completed working on your device and want to distribut it, make sure to include required npm packages as dev dependancies in your .maxproj before you freeze the device. For a detailed guide, visit https://cycling74.com/forums/node-for-max-bundling-in-collectives-standalones-and-max-for-live-devices "
+					"patching_rect" : [ 60.0, 140.0, 351.0, 227.0 ],
+					"text" : "1. Make sure that all the downloaded scripts are visible to the device. Go to Options -> File Preferences and add a path pointing to the folder where you have forked Scribbleformax. Make sure to include subfolders.\n3. Save your device, exit it and open it again.\n2. Install npm packeges by clicking the \"script npm install\" message (1 time only).\n\nNote: Once you have completed working on your device and want to distribut it, make sure to include required npm packages as dev dependancies in your .maxproj before you freeze the device. For a detailed guide, visit https://docs.cycling74.com/max8/vignettes/03_n4m_projects_devices or https://cycling74.com/forums/node-for-max-bundling-in-collectives-standalones-and-max-for-live-devices "
 				}
 
 			}
@@ -91,7 +116,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 437.0, 140.0, 98.0, 22.0 ],
+					"patching_rect" : [ 433.0, 197.0, 98.0, 22.0 ],
 					"text" : "script npm install"
 				}
 
@@ -102,7 +127,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 682.5, 41.0, 150.0, 20.0 ],
+					"patching_rect" : [ 724.0, 41.0, 150.0, 20.0 ],
 					"text" : "pattern"
 				}
 
@@ -125,7 +150,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 713.0, 479.0, 276.0, 48.0 ],
+					"patching_rect" : [ 713.0, 479.0, 278.0, 48.0 ],
 					"text" : "This script passes the Scribletune clip down to the Live's API. It contains Scribblemax and a function that retrieves the clip from the clip1 dictionary"
 				}
 
@@ -161,7 +186,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 663.0, 281.5, 221.0, 34.0 ],
+					"patching_rect" : [ 663.0, 281.5, 224.0, 34.0 ],
 					"text" : "With this message, we triggre the whole process of making the Scribbletune clip"
 				}
 
@@ -181,38 +206,12 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-14",
-					"linecount" : 2,
+					"linecount" : 4,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 824.0, 61.0, 228.0, 34.0 ],
-					"text" : "At the presentation view, we can define as many optional parameters as we want"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-10",
-					"maxclass" : "live.menu",
-					"numinlets" : 1,
-					"numoutlets" : 3,
-					"outlettype" : [ "", "", "float" ],
-					"parameter_enable" : 1,
-					"patching_rect" : [ 683.5, 61.0, 100.0, 15.0 ],
-					"presentation" : 1,
-					"presentation_rect" : [ 88.0, 35.0, 54.0, 15.0 ],
-					"saved_attribute_attributes" : 					{
-						"valueof" : 						{
-							"parameter_enum" : [ "xxxx", "x_xx" ],
-							"parameter_longname" : "pattern",
-							"parameter_mmax" : 1,
-							"parameter_shortname" : "pattern",
-							"parameter_type" : 2
-						}
-
-					}
-,
-					"varname" : "pattern"
+					"patching_rect" : [ 865.0, 67.0, 228.0, 62.0 ],
+					"text" : "At the presentation view, we can define as many optional parameters as we want. These 2 serve as placeholders, include as many menus as you want."
 				}
 
 			}
@@ -263,7 +262,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 724.0, 140.0, 113.0, 22.0 ],
+					"patching_rect" : [ 724.0, 154.0, 113.0, 22.0 ],
 					"text" : "prepend set pattern"
 				}
 
@@ -275,7 +274,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 594.0, 140.0, 105.0, 22.0 ],
+					"patching_rect" : [ 594.0, 154.0, 105.0, 22.0 ],
 					"text" : "prepend set notes"
 				}
 
@@ -303,6 +302,8 @@
 					"saved_object_attributes" : 					{
 						"autostart" : 1,
 						"defer" : 0,
+						"node_bin_path" : "",
+						"npm_bin_path" : "",
 						"watch" : 1
 					}
 ,
@@ -367,7 +368,7 @@
 		"lines" : [ 			{
 				"patchline" : 				{
 					"destination" : [ "obj-11", 0 ],
-					"source" : [ "obj-10", 1 ]
+					"source" : [ "obj-1", 0 ]
 				}
 
 			}
@@ -389,6 +390,13 @@
 				"patchline" : 				{
 					"destination" : [ "obj-6", 0 ],
 					"source" : [ "obj-18", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-1", 0 ],
+					"source" : [ "obj-21", 0 ]
 				}
 
 			}
@@ -436,7 +444,6 @@
 			}
  ],
 		"parameters" : 		{
-			"obj-10" : [ "pattern", "pattern", 0 ],
 			"obj-7" : [ "notes", "notes", 0 ],
 			"parameterbanks" : 			{
 
