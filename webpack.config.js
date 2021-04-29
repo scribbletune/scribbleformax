@@ -4,7 +4,8 @@ module.exports = {
   mode: 'production',
   entry: {
     riff: './src/riff.js',
-    chords: './src/chords.js'
+    chords: './src/chords.js',
+    templateAPIpass: './src/templateAPIpass.js'
   },
 
   output: {
