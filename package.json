@@ -30,6 +30,6 @@
   "author": "",
   "license": "ISC",
   "bin": {
-    "create-boilerplate": "./generate-device.js"
+    "generate-scribble4max-device": "./bin/generate-scribble4max-device.js"
   }
 }
