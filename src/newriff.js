@@ -1,8 +1,15 @@
 const maxApi = require('max-api');
 const scribble = require('scribbletune');
-const _ = require('lodash');
 
 maxApi.post('hello from v4 in riff');
+
+const repeat = (str, count = 1) => {
+  let replacedStr = '';
+  for (let i = 0; i < count; i++) {
+    replacedStr += str;
+  }
+  return replacedStr;
+};
 
 maxApi.addHandler('makeClip', () => {
   //we create an event handler function to contain the script. For more information on how this works, see Node for Max documantation https://docs.cycling74.com/nodeformax/api/
@@ -29,7 +36,7 @@ maxApi.addHandler('makeClip', () => {
 
     const clipA = scribble.clip({
       notes: mode[0],
-      pattern: _.repeat(pattern, repeatPattern),
+      pattern: repeat(pattern, repeatPattern),
       randomNotes: useScaleNotesForR ? mode.slice(1) : null,
       subdiv,
       sizzle,
@@ -38,7 +45,7 @@ maxApi.addHandler('makeClip', () => {
 
     const clipB = scribble.clip({
       notes: mode[0],
-      pattern: _.repeat(pattern, repeatPattern),
+      pattern: repeat(pattern, repeatPattern),
       randomNotes: useScaleNotesForR ? mode.slice(2) : null,
       subdiv,
       sizzle,
@@ -47,7 +54,7 @@ maxApi.addHandler('makeClip', () => {
 
     const clipC = scribble.clip({
       notes: mode[1],
-      pattern: _.repeat(pattern, repeatPattern),
+      pattern: repeat(pattern, repeatPattern),
       randomNotes: useScaleNotesForR ? mode.slice(3) : null,
       subdiv,
       sizzle,
