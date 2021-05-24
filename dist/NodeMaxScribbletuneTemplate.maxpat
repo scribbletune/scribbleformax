@@ -80,12 +80,12 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-12",
-					"linecount" : 16,
+					"linecount" : 14,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 60.0, 140.0, 351.0, 227.0 ],
-					"text" : "1. Make sure that all the downloaded scripts are visible to the device. Go to Options -> File Preferences and add a path pointing to the folder where you have forked Scribbleformax. Make sure to include subfolders.\n3. Save your device, exit it and open it again.\n2. Install npm packeges by clicking the \"script npm install\" message (1 time only).\n\nNote: Once you have completed working on your device and want to distribut it, make sure to include required npm packages as dev dependancies in your .maxproj before you freeze the device. For a detailed guide, visit https://docs.cycling74.com/max8/vignettes/03_n4m_projects_devices or https://cycling74.com/forums/node-for-max-bundling-in-collectives-standalones-and-max-for-live-devices "
+					"patching_rect" : [ 60.0, 140.0, 351.0, 200.0 ],
+					"text" : "1. Make sure that all the downloaded scripts are visible to the device. Go to Options -> File Preferences and add a path pointing to the folder where you have forked Scribbleformax. Make sure to include subfolders.\n2. Save your device, exit it and open it again.\n\nNote: Once you have completed working on your device and want to distribut it, make sure to include required npm packages as dev dependancies in your .maxproj before you freeze the device. For a detailed guide, visit https://docs.cycling74.com/max8/vignettes/03_n4m_projects_devices or https://cycling74.com/forums/node-for-max-bundling-in-collectives-standalones-and-max-for-live-devices "
 				}
 
 			}
@@ -106,18 +106,6 @@
 					"outlettype" : [ "bang" ],
 					"patching_rect" : [ 1011.0, 415.0, 400.0, 220.0 ],
 					"viewvisibility" : 1
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-18",
-					"maxclass" : "message",
-					"numinlets" : 2,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 433.0, 197.0, 98.0, 22.0 ],
-					"text" : "script npm install"
 				}
 
 			}
@@ -302,8 +290,6 @@
 					"saved_object_attributes" : 					{
 						"autostart" : 1,
 						"defer" : 0,
-						"node_bin_path" : "",
-						"npm_bin_path" : "",
 						"watch" : 1
 					}
 ,
@@ -383,13 +369,6 @@
 				"patchline" : 				{
 					"destination" : [ "obj-6", 0 ],
 					"source" : [ "obj-13", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-6", 0 ],
-					"source" : [ "obj-18", 0 ]
 				}
 
 			}

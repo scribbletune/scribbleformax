@@ -3,11 +3,11 @@ const scribble = require('scribbletune');
 
 maxApi.addHandler("makeClip", () => { //we create an event handler function to contain the script. For more information on how this works, see Node for Max documantation https://docs.cycling74.com/nodeformax/api/
     
-    const constructChords = (async () => {
+    const constructClip = (async () => {
         const parameters = await maxApi.getDict("parameters") //we fetch the main dictionary "parameters"
         
-        const notes = parameters.notes //we retrieve the parameters
-        const pattern = parameters.pattern
+        const { notes, pattern } = parameters //we retrieve the parameters
+        // Any custom logic that manipulates parameters retrieved from presentation should be written here, between lines 9 and 12
         
         const clip = scribble.clip({ //we make the clip with Scribbletune
             notes,

@@ -28,5 +28,8 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "bin": {
+    "generate-scribble4max-device": "./bin/generate-scribble4max-device.js"
+  }
 }
