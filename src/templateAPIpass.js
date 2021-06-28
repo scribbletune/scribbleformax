@@ -1,7 +1,6 @@
 /*global post:true LiveAPI Dict outlet*/
 const scribble = require('scribbletune/max');
 
-
 //This function imports Scribbletune clip from an M4L dictionary
 function getClip(dictName) {
     var d = new Dict(dictName);
@@ -52,6 +51,4 @@ module.exports = function () {
         clip,
         oap ? 'live_set view detail_clip' : 'live_set view highlighted_clip_slot clip'
     );
-
 };
-
