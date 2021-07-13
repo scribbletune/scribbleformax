@@ -1,5 +1,6 @@
 const maxApi = require('max-api');
 const scribble = require('scribbletune');
+const { Note } = require('@tonaljs/tonal');
 
 maxApi.post('hello from v4 in dist/riff apiClip');
 
@@ -9,6 +10,36 @@ const repeat = (str, count = 1) => {
     replacedStr += str;
   }
   return replacedStr;
+};
+
+const scribbleClipToMidiSteps = scribbleClip => {
+  let startTime = 0;
+  let endTime = 0;
+  const liveFormat = [];
+  for (const step of scribbleClip) {
+    endTime += step.length;
+
+    if (step.note) {
+      for (let noteInt = 0; noteInt < step.note.length; noteInt++) {
+        liveFormat.push({
+          pitch: Note.midi(step.note[noteInt]),
+          start_time: startTime / 512,
+          duration: (endTime - startTime) / 512,
+          velocity: step.level,
+          probability: 1,
+          velocity_deviation: 1,
+          release_velocity: 64,
+          mute: 0,
+        });
+      }
+    }
+
+    startTime += step.length;
+  }
+
+  const totalDuration = scribbleClip.reduce((duration, step) => (duration = duration + step.length), 0) / 512;
+
+  return { liveFormat, totalDuration };
 };
 
 maxApi.addHandler('makeClip', async () => {
@@ -80,9 +111,12 @@ maxApi.addHandler('makeClip', async () => {
     }, []);
   })();
 
+  const midiSteps = scribbleClipToMidiSteps(clip);
+
   // Set the generated clip inside a dict object for api.js to consume
   await maxApi.setDict('apiClip', {
-    scribbledClip: clip,
+    notes: midiSteps.liveFormat,
+    totalDuration: midiSteps.totalDuration,
   });
 
   maxApi.outlet('bang'); // we send a bang out to let the rest of the patch know to do its thing
