@@ -12,7 +12,7 @@ if (process.argv.length < 3) {
 const projectName = process.argv[2];
 const currentPath = process.cwd();
 const projectPath = path.join(currentPath, projectName);
-const git_repo = 'https://github.com/JanZaion/scribbleformax'; //Im pointing it to my fork of the main repo for dev purposes, should be changed later
+const git_repo = 'https://github.com/scribbletune/scribbleformax'; //Im pointing it to my fork of the main repo for dev purposes, should be changed later
 
 try {
   fs.mkdirSync(projectPath);
@@ -34,7 +34,7 @@ try {
 
     console.log('Installing dependencies...');
     execSync('npm install');
-    
+
     console.log('Removing useless files');
     execSync('npx rimraf ./.git');
     fs.rmdirSync(path.join(projectPath, 'bin'), { recursive: true });
@@ -43,4 +43,4 @@ try {
   } catch (error) {
     console.log(error);
   }
-})()
+})();

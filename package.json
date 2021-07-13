@@ -31,5 +31,11 @@
   "license": "ISC",
   "bin": {
     "generate-scribble4max-device": "./bin/generate-scribble4max-device.js"
+  },
+  "prettier": {
+    "printWidth": 120,
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "tabWidth": 2
   }
 }
