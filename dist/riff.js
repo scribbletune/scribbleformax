@@ -1,6 +1,6 @@
 const maxApi = require('max-api');
 const scribble = require('scribbletune');
-const { Note } = require('@tonaljs/tonal');
+const jsmidgen = require('jsmidgen');
 
 maxApi.post('hello from v4 in dist/riff apiClip');
 
@@ -22,7 +22,7 @@ const scribbleClipToMidiSteps = scribbleClip => {
     if (step.note) {
       for (let noteInt = 0; noteInt < step.note.length; noteInt++) {
         liveFormat.push({
-          pitch: Note.midi(step.note[noteInt]),
+          pitch: jsmidgen.Util.midiPitchFromNote(step.note[noteInt]),
           start_time: startTime / 512,
           duration: (endTime - startTime) / 512,
           velocity: step.level,
