@@ -4,7 +4,6 @@ module.exports = {
   mode: 'production',
   entry: {
     chords: './src/chords.js',
-    api: './src/api.js',
   },
 
   output: {
