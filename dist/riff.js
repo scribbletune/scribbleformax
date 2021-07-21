@@ -2,8 +2,6 @@ const maxApi = require('max-api');
 const scribble = require('scribbletune');
 const jsmidgen = require('jsmidgen');
 
-maxApi.post('hello from v4 in dist/riff apiClip');
-
 const repeat = (str, count = 1) => {
   let replacedStr = '';
   for (let i = 0; i < count; i++) {
@@ -43,9 +41,9 @@ const scribbleClipToMidiSteps = scribbleClip => {
 };
 
 maxApi.addHandler('makeClip', async () => {
-  const parameters = await maxApi.getDict('parameters'); //we fetch the main dictionary "parameters"
+  const parameters = await maxApi.getDict('parameters'); // we fetch the main dictionary "parameters"
 
-  //we retrieve the parameters
+  // we retrieve the parameters
   let {
     scale = 'C3 phrygian',
     pattern = 'x-xRx_RR',
@@ -114,6 +112,7 @@ maxApi.addHandler('makeClip', async () => {
   const midiSteps = scribbleClipToMidiSteps(clip);
 
   // Set the generated clip inside a dict object for api.js to consume
+  // apiClip is already a dict object created in the amxd file
   await maxApi.setDict('apiClip', {
     notes: midiSteps.liveFormat,
     totalDuration: midiSteps.totalDuration,
