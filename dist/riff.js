@@ -2,14 +2,6 @@ const maxApi = require('max-api');
 const scribble = require('scribbletune');
 const jsmidgen = require('jsmidgen');
 
-const repeat = (str, count = 1) => {
-  let replacedStr = '';
-  for (let i = 0; i < count; i++) {
-    replacedStr += str;
-  }
-  return replacedStr;
-};
-
 const scribbleClipToMidiSteps = scribbleClip => {
   let startTime = 0;
   let endTime = 0;
@@ -63,7 +55,7 @@ maxApi.addHandler('makeClip', async () => {
 
   const clipA = scribble.clip({
     notes: mode[0],
-    pattern: repeat(pattern, repeatPattern),
+    pattern: pattern.repeat(repeatPattern),
     randomNotes: useScaleNotesForR ? mode.slice(1) : null,
     subdiv,
     sizzle,
@@ -72,7 +64,7 @@ maxApi.addHandler('makeClip', async () => {
 
   const clipB = scribble.clip({
     notes: mode[0],
-    pattern: repeat(pattern, repeatPattern),
+    pattern: pattern.repeat(repeatPattern),
     randomNotes: useScaleNotesForR ? mode.slice(2) : null,
     subdiv,
     sizzle,
@@ -81,7 +73,7 @@ maxApi.addHandler('makeClip', async () => {
 
   const clipC = scribble.clip({
     notes: mode[1],
-    pattern: repeat(pattern, repeatPattern),
+    pattern: pattern.repeat(repeatPattern),
     randomNotes: useScaleNotesForR ? mode.slice(3) : null,
     subdiv,
     sizzle,
