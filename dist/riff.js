@@ -39,7 +39,7 @@ maxApi.addHandler('makeClip', async () => {
   let {
     scale = 'C3 phrygian',
     pattern = 'x-xRx_RR',
-    ab = 'AAAB',
+    ab = 'ABC',
     subdiv = 0,
     sizzle,
     sizzleReps = 1,
@@ -53,6 +53,7 @@ maxApi.addHandler('makeClip', async () => {
   repeatPattern = parseInt(repeatPattern);
   const mode = scribble.scale(scale);
 
+  // A clips are riffs with the root note used as `x` and randomly selected notes from the rest of the scale for `R`
   const clipA = scribble.clip({
     notes: mode[0],
     pattern: pattern.repeat(repeatPattern),
@@ -62,44 +63,53 @@ maxApi.addHandler('makeClip', async () => {
     sizzleReps,
   });
 
+  // B clips are riffs similar to A clips but the second note in the scale used as `x` and randomly selected notes from the rest of the scale for `R`
   const clipB = scribble.clip({
-    notes: mode[0],
-    pattern: pattern.repeat(repeatPattern),
-    randomNotes: useScaleNotesForR ? mode.slice(2) : null,
-    subdiv,
-    sizzle,
-    sizzleReps,
-  });
-
-  const clipC = scribble.clip({
     notes: mode[1],
     pattern: pattern.repeat(repeatPattern),
-    randomNotes: useScaleNotesForR ? mode.slice(3) : null,
+    randomNotes: useScaleNotesForR ? mode.slice(1) : null,
     subdiv,
     sizzle,
     sizzleReps,
   });
 
-  const clip = (() => {
-    // AAAB AB A AABB BAAA ABA BAB AABC ABBC ABCC ABC BAC CBA
-    return ab.split('').reduce((acc, b) => {
-      switch (b) {
-        case 'A':
-          acc = [...acc, ...clipA];
-          break;
+  // C clips generate A and B clips and then combine them as -> A + B + first half of A + first half of B + second half of A + second half of B
+  const clipC = [
+    ...clipA.slice(0, Math.floor(clipA.length / 2)),
+    ...clipB.slice(0, Math.floor(clipB.length / 2)),
+    ...clipA.slice(Math.floor(clipA.length / 2)),
+    ...clipB.slice(Math.floor(clipA.length / 2)),
+  ];
 
-        case 'B':
-          acc = [...acc, ...clipB];
-          break;
+  const clip = ab.split('').reduce((acc, b) => {
+    switch (b) {
+      case 'A':
+        acc = [...acc, ...clipA];
+        break;
 
-        case 'C':
-          acc = [...acc, ...clipC];
-          break;
+      case 'B':
+        acc = [...acc, ...clipB];
+        break;
+
+      case 'C':
+        acc = [...acc, ...clipC];
+        break;
+    }
+
+    return acc;
+  }, []);
+
+  clip.forEach((note, idx) => {
+    if (idx === 0) return;
+
+    if (note.note === clip[idx - 1].note) {
+      const updatedNote = mode[Math.round(Math.random() * (mode.length - 1))];
+      if (updatedNote === note.note) {
+        maxApi.post(`Previous note: ${clip[idx - 1].note}, Current note: ${note.note}, Update note: ${updatedNote}`);
       }
-
-      return acc;
-    }, []);
-  })();
+      note.note[0] = updatedNote;
+    }
+  });
 
   const midiSteps = scribbleClipToMidiSteps(clip);
 
