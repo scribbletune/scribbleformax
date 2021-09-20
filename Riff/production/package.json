@@ -1,0 +1,12 @@
+{
+  "name": "scribble4max",
+  "version": "1.5.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "scribbletune": "^4.1.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
