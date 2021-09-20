@@ -1,12 +1,23 @@
 {
-  "name": "scribble4max",
-  "version": "1.5.0",
+  "name": "riff",
+  "version": "2.0.0",
   "description": "",
   "main": "index.js",
   "dependencies": {
     "scribbletune": "^4.1.0"
   },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-loader": "^2.1.2",
+    "prettier": "^1.18.2"
+  },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "prettier": {
+    "printWidth": 120,
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "tabWidth": 2
+  }
 }

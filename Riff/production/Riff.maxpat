@@ -10,9 +10,9 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 353.0, -947.0, 1699.0, 897.0 ],
+		"rect" : [ 42.0, 85.0, 1458.0, 929.0 ],
 		"bglocked" : 0,
-		"openinpresentation" : 0,
+		"openinpresentation" : 1,
 		"default_fontsize" : 12.0,
 		"default_fontface" : 0,
 		"default_fontname" : "Arial",
@@ -39,26 +39,6 @@
 		"subpatcher_template" : "",
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
-				"box" : 				{
-					"bgmode" : 0,
-					"border" : 0,
-					"clickthrough" : 0,
-					"enablehscroll" : 0,
-					"enablevscroll" : 0,
-					"id" : "obj-48",
-					"lockeddragscroll" : 0,
-					"maxclass" : "bpatcher",
-					"name" : "n4m.monitor.maxpat",
-					"numinlets" : 1,
-					"numoutlets" : 1,
-					"offset" : [ 0.0, 0.0 ],
-					"outlettype" : [ "bang" ],
-					"patching_rect" : [ 234.0, 505.0, 400.0, 220.0 ],
-					"viewvisibility" : 1
-				}
-
-			}
-, 			{
 				"box" : 				{
 					"id" : "obj-46",
 					"maxclass" : "newobj",
@@ -198,6 +178,14 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
 					"patching_rect" : [ 28.0, 447.0, 225.0, 22.0 ],
+					"saved_object_attributes" : 					{
+						"autostart" : 1,
+						"defer" : 0,
+						"node_bin_path" : "",
+						"npm_bin_path" : "",
+						"watch" : 1
+					}
+,
 					"text" : "node.script riff.js @autostart 1 @watch 1"
 				}
 
@@ -771,7 +759,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 10.0, 6.5, 96.5, 33.0 ],
+					"patching_rect" : [ 10.0, 6.5, 96.5, 34.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 7.0, 8.0, 133.0, 20.0 ],
 					"text" : "SCRIBBLE 4 MAX v1.4",
@@ -846,7 +834,7 @@
 					"numoutlets" : 0,
 					"patching_rect" : [ -267.499999999999886, -60.5, 1711.0, 846.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ -10.0, -12.833333194255829, 1415.0, 763.0 ]
+					"presentation_rect" : [ -10.0, -12.833333194255829, 519.0, 198.0 ]
 				}
 
 			}
@@ -993,13 +981,6 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-48", 0 ],
-					"source" : [ "obj-77", 1 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
 					"destination" : [ "obj-79", 0 ],
 					"source" : [ "obj-77", 0 ]
 				}
@@ -1038,26 +1019,22 @@
 ,
 		"dependency_cache" : [ 			{
 				"name" : "_rootOctScale.maxpat",
-				"bootpath" : "~/Github/Riff-Prod",
-				"patcherrelativepath" : ".",
+				"bootpath" : "~/Desktop/scribbleformax/Riff",
+				"patcherrelativepath" : "..",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "n4m.monitor.maxpat",
-				"bootpath" : "C74:/packages/Node For Max/patchers/debug-monitor",
-				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "resize_n4m_monitor_patcher.js",
-				"bootpath" : "C74:/packages/Node For Max/patchers/debug-monitor",
+				"name" : "api.js",
+				"bootpath" : "~/Desktop/scribbleformax/Riff",
+				"patcherrelativepath" : "..",
 				"type" : "TEXT",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "fit_jweb_to_bounds.js",
-				"bootpath" : "C74:/packages/Node For Max/patchers/debug-monitor",
+				"name" : "riff.js",
+				"bootpath" : "~/Desktop/scribbleformax/Riff",
+				"patcherrelativepath" : "..",
 				"type" : "TEXT",
 				"implicit" : 1
 			}
